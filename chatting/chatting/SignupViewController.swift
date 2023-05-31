@@ -36,8 +36,7 @@ class SignupViewController: ViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                    self.showAlert(message: "회원가입이 완료되었습니다.")
-                self.performSegue(withIdentifier: "Login", sender: self)
+                self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
         

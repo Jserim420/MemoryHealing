@@ -11,7 +11,6 @@
         <!--Navigation Controller-->
         <scene sceneID="oh1-Oi-RKw">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AqG-DT-ji0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lEf-DN-vOi" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ez6-ha-WS6">
@@ -23,6 +22,7 @@
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="iUU-Fw-kEo"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AqG-DT-ji0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="225" y="-187"/>
         </scene>
@@ -40,7 +40,8 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                 <connections>
-                                    <segue destination="qAr-o9-sf7" kind="show" id="4U2-EF-Z2B"/>
+                                    <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a7o-V7-omv"/>
+                                    <segue destination="qAr-o9-sf7" kind="show" id="17X-iA-847"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axp-Kv-ZZw" userLabel="emailTextField">
@@ -106,7 +107,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Sign Up"/>
                                 <connections>
                                     <action selector="SignUp:" destination="7VZ-lV-JAG" eventType="touchUpInside" id="7ZM-9r-r0o"/>
-                                    <segue destination="qAr-o9-sf7" kind="show" id="RwI-46-Znh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,35 +124,33 @@
             </objects>
             <point key="canvasLocation" x="1088" y="523"/>
         </scene>
-        <!--MemoryHealing-->
+        <!--채팅목록-->
         <scene sceneID="zJP-sg-EWV">
             <objects>
-                <viewController id="qAr-o9-sf7" customClass="ChatViewController" customModule="chatting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="qAr-o9-sf7" customClass="ChatViewController" customModule="chatting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7u6-ls-bbi">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메인화면" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-5n-FuS">
-                                <rect key="frame" x="116" y="399" width="160" height="55"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xYa-VC-add">
+                                <rect key="frame" x="0.0" y="201" width="393" height="451"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="46"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="plU-we-GlB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="MemoryHealing" leftItemsSupplementBackButton="YES" id="dPi-0l-6Jg"/>
+                    <navigationItem key="navigationItem" title="채팅목록" leftItemsSupplementBackButton="YES" id="dPi-0l-6Jg"/>
+                    <connections>
+                        <outlet property="channelTableView" destination="xYa-VC-add" id="Y8y-EC-o19"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikg-2U-FM0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2106" y="208"/>
+            <point key="canvasLocation" x="1970.2290076335878" y="-56.338028169014088"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="4U2-EF-Z2B"/>
-    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

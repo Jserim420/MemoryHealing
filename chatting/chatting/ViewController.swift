@@ -9,8 +9,10 @@ import Foundation
 import FirebaseAuth
 import UIKit
 import FirebaseCore
+import MessageKit
 
-class ViewController: UIViewController {
+class ViewController: BaseViewController {
+
 
     @IBOutlet var emailTextField: UITextField!
     
@@ -37,9 +39,11 @@ class ViewController: UIViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                self.performSegue(withIdentifier: "Login", sender: self)
             }
         }
+        
+
+        
         
     }
     
