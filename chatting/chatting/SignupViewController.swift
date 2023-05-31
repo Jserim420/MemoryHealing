@@ -13,25 +13,42 @@ class SignupViewController: ViewController {
     @IBOutlet weak var signupEmailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBAction func signup(_ sender: UIButton) {
+    @IBAction func SignUp(_ sender: UIButton) {
         guard let email = signupEmailTextField.text, !email.isEmpty else {
-            // 이메일 텍스트 필드가 비어있거나 nil일 경우 처리
+            showAlert(message: "이메일을 입력해주세요.")
             return
         }
         guard let password = passwordTextField.text, !password.isEmpty else {
-            // 패스워드 텍스트 필드가 비어있거나 nil일 경우 처리
+            showAlert(message: "비밀번호를 입력해주세요.")
             return
         }
+        
         
         // 이후의 코드 실행
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                self.performSegue(withIdentifier: "SignUp", sender: self)
+                // self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            if let e = error {
+                print(e.localizedDescription)
+            } else {
+                    self.showAlert(message: "회원가입이 완료되었습니다.")
+                self.performSegue(withIdentifier: "Login", sender: self)
+            }
+        }
+        
     }
+    
+    private func showAlert(message: String) {
+            let alert = UIAlertController(title: "알림", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "확인", style: .default, handler: nil)
+            alert.addAction(okAction)
+            present(alert, animated: true, completion: nil)
+        }
 
 }
 
