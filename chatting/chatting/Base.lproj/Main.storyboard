@@ -29,7 +29,7 @@
         <!--로그인-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="chatting" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignupViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="chatting" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,6 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Login"/>
                                 <connections>
                                     <action selector="Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a7o-V7-omv"/>
-                                    <segue destination="qAr-o9-sf7" kind="show" id="17X-iA-847"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="axp-Kv-ZZw" userLabel="emailTextField">
@@ -113,7 +112,9 @@
                         <viewLayoutGuide key="safeArea" id="kEt-FS-1W9"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="회원가입" id="hoC-J6-iJ8"/>
+                    <navigationItem key="navigationItem" title="회원가입" id="hoC-J6-iJ8">
+                        <barButtonItem key="backBarButtonItem" title="로그인" id="0yY-ZG-ZHR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="passwordTextField" destination="MeL-7J-dDl" id="DOQ-lZ-PlD"/>
                         <outlet property="signupEmailTextField" destination="6eN-UX-Vqe" id="PUO-0Y-UVs"/>

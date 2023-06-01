@@ -19,6 +19,7 @@
 		12418F0E2A27017C00BB7987 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F4DE1AC02A26FAAB005267D1 /* GoogleService-Info.plist */; };
 		1278FB5E2A205A0300C1D18B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278FB5D2A205A0300C1D18B /* LoginViewController.swift */; };
 		1278FB602A205A2100C1D18B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278FB5F2A205A2100C1D18B /* ChatViewController.swift */; };
+		12A5B00E2A2878E300C5A5DF /* ChannelTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12A5B00D2A2878E300C5A5DF /* ChannelTableViewCell.xib */; };
 		12B1F0922A2734AF0005D60A /* MessageKit in Frameworks */ = {isa = PBXBuildFile; productRef = 12B1F0912A2734AF0005D60A /* MessageKit */; };
 		12B1F09A2A2735A50005D60A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B1F0992A2735A50005D60A /* BaseViewController.swift */; };
 		12B1F09D2A2735D40005D60A /* ChannelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B1F09C2A2735D40005D60A /* ChannelTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		1278FB5D2A205A0300C1D18B /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		1278FB5F2A205A2100C1D18B /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		12A5B00D2A2878E300C5A5DF /* ChannelTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelTableViewCell.xib; sourceTree = "<group>"; };
 		12B1F0992A2735A50005D60A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		12B1F09C2A2735D40005D60A /* ChannelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelTableViewCell.swift; sourceTree = "<group>"; };
 		12B1F09F2A2736A10005D60A /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		12B1F09B2A2735C80005D60A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				12A5B00D2A2878E300C5A5DF /* ChannelTableViewCell.xib */,
 				12B1F09C2A2735D40005D60A /* ChannelTableViewCell.swift */,
 			);
 			path = View;
@@ -224,6 +227,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A5B00E2A2878E300C5A5DF /* ChannelTableViewCell.xib in Resources */,
 				12418F0E2A27017C00BB7987 /* GoogleService-Info.plist in Resources */,
 				12D183A92A2055B500CA696E /* LaunchScreen.storyboard in Resources */,
 				12D183A62A2055B500CA696E /* Assets.xcassets in Resources */,
