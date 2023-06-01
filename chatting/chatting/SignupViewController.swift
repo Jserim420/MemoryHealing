@@ -36,7 +36,7 @@ class SignupViewController: ViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                self.performSegue(withIdentifier: "SignUp", sender: self)
+                // self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
         

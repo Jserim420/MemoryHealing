@@ -21,7 +21,7 @@ class LoginViewController: ViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                self.performSegue(withIdentifier: "Login", sender: self)
+                //self.performSegue(withIdentifier: "Login", sender: self)
             }
         }
     }

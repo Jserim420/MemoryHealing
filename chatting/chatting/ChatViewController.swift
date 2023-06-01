@@ -1,65 +1,77 @@
 import UIKit
-import SnapKit
 
-class ChatViewController: BaseViewController {
-    let channel: Channel // 채널 정보를 저장할 프로퍼티 추가
+class ChatViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var messageTextField: UITextField!
 
-        init(channel: Channel) { // 커스텀 초기화 메서드 추가
-            self.channel = channel
-            super.init(nibName: nil, bundle: nil)
-        }
+    var messages: [String] = []
 
-        required init?(coder aDecoder: NSCoder) {
-            fatalError("init(coder:) has not been implemented")
-        }
-    
-    lazy var channelTableView: UITableView = {
-        let view = UITableView()
-        view.register(ChannelTableViewCell.self, forCellReuseIdentifier: "ChannelTableViewCell")
-        view.delegate = self
-        view.dataSource = self
-        
-        return view
-    }()
-    
-    var channels = [Channel]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configure()
-    }
-    
-    private func configure() {
-        view.addSubview(channelTableView)
-        channelTableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-        
-        title = "채팅목록"
-        channels = getChannelMocks()
-    }
-    
-}
+        tableView.register(UINib(nibName: "MessageCell", bundle: nil), forCellReuseIdentifier: "MessageCell")
 
-extension ChatViewController: UITableViewDataSource, UITableViewDelegate {
+        // 테이블 뷰의 데이터 소스와 델리게이트를 설정합니다.
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.rowHeight = UITableView.automaticDimension
+        
+        tableView.estimatedRowHeight = 1000 // 예상 셀 높이 값 설정 (원하는 크기로 변경 가능)
+        
+        
+
+
+    }
+
+    // 전송 버튼의 액션 메서드입니다.
+    @IBAction func sendMessage(_ sender: UIButton) {
+        if let message = messageTextField.text, !message.isEmpty {
+            messages.append(message)
+            tableView.reloadData()
+            messageTextField.text = ""
+            tableView.layoutIfNeeded()
+        }
+    }
+
+    // MARK: - UITableViewDataSource
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return channels.count
+        return messages.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ChannelTableViewCell", for: indexPath) as! ChannelTableViewCell
-        cell.chatRoomLabel.text = channels[indexPath.row].name
-        return cell
-    }
-    
+           let cell = tableView.dequeueReusableCell(withIdentifier: "MessageCell", for: indexPath) as! MessageCell
+           cell.messageLabel.text = messages[indexPath.row]
+           cell.messageLabel.numberOfLines = 0 // 여러 줄 표시를 위해 줄 수를 0으로 설정합니다.
+           
+           // UILabel의 크기를 동적으로 조정합니다.
+           cell.messageLabel.sizeToFit()
+           
+           // UITableViewCell의 contentView 크기를 동적으로 조정합니다.
+           cell.contentView.frame.size.height = cell.messageLabel.frame.size.height
+        
+        cell.messageLabel.textAlignment = .right
+           
+           return cell
+       }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 55
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let channel = channels[indexPath.row]
-        let viewController = ChatViewController(channel: channel)
-        navigationController?.pushViewController(viewController, animated: true)
+        let message = messages[indexPath.row]
+        
+        // UILabel을 생성하여 메시지 내용을 설정합니다.
+        let label = UILabel()
+        label.text = message
+        label.numberOfLines = 0 // 여러 줄 표시 가능하도록 설정합니다.
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.systemFont(ofSize: 17) // 적절한 폰트 크기를 설정합니다.
+        
+        // UILabel의 사이즈를 계산합니다.
+        let labelSize = label.sizeThatFits(CGSize(width: tableView.frame.width, height: CGFloat.greatestFiniteMagnitude))
+        
+        // 메시지 레이블과 여백 등을 고려하여 최종 셀 높이를 계산합니다.
+        let finalHeight = labelSize.height + 16 // 예시로 16의 여백을 추가합니다.
+        let minimumHeight: CGFloat = 50 // 셀의 최소 높이
+        
+        return max(finalHeight, minimumHeight)
     }
 }

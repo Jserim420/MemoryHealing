@@ -11,7 +11,7 @@ import UIKit
 import FirebaseCore
 import MessageKit
 
-class ViewController: BaseViewController {
+class ViewController: UIViewController {
 
 
     @IBOutlet var emailTextField: UITextField!
@@ -39,9 +39,6 @@ class ViewController: BaseViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                let channel = Channel(name: "Default Channel") // 채널 정보 생성
-                                let viewController = ChatViewController(channel: channel) // ChatViewController 인스턴스 생성 및 채널 정보 전달
-                                self.navigationController?.pushViewController(viewController, animated: true) // ChatViewController로 전환
                             
             }
         }
