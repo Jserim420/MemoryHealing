@@ -29,14 +29,14 @@ class SignupViewController: ViewController {
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                // self.performSegue(withIdentifier: "SignUp", sender: self)
+                self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let e = error {
                 print(e.localizedDescription)
             } else {
-                // self.performSegue(withIdentifier: "SignUp", sender: self)
+                self.performSegue(withIdentifier: "SignUp", sender: self)
             }
         }
         
