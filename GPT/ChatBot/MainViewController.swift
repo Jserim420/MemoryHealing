@@ -10,10 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    // @IBOutlet var img1: UIImageView!
+    //@IBOutlet var img1: UIImageView!
     @IBAction func btn1(_ sender: Any) {
     }
-    // @IBOutlet var slide: UICollectionView!
+    //@IBOutlet var slide: UICollectionView!
     
     let youtubeLinks = [
         "https://www.youtube.com/watch?v=fhdX3Wcxwas",
@@ -26,11 +26,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /*
         // 이미지뷰 스타일 설정
-        //img1.layer.borderWidth = 2.0
-        //img1.layer.borderColor = UIColor(red: 96/255, green: 150/255, blue: 180/255, alpha: 1.0).cgColor
-        //img1.layer.cornerRadius = 20
-        //img1.clipsToBounds = true
+        img1.layer.borderWidth = 2.0
+        img1.layer.borderColor = UIColor(red: 96/255, green: 150/255, blue: 180/255, alpha: 1.0).cgColor
+        img1.layer.cornerRadius = 20
+        img1.clipsToBounds = true
+         */
         
         // 버튼 스타일 설정
         // btn1.layer.cornerRadius = btn1.frame.height / 2
@@ -47,6 +49,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
             flowLayout.scrollDirection = .horizontal
         }
          */
+         
         
         // 썸네일 이미지 다운로드
         downloadThumbnails()
