@@ -20,6 +20,7 @@
 		5A042B2D24352814000BC283 /* ConversationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A042B2624352814000BC283 /* ConversationDelegate.swift */; };
 		5A042B2E24352814000BC283 /* AskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A042B2724352814000BC283 /* AskCell.swift */; };
 		5CE3744AE83C86837EA5E31A /* Pods_ChatBot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 127402F5937D7EEEFAEBD1A4 /* Pods_ChatBot.framework */; };
+		F188D99A2A2B57C90064116E /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188D9992A2B57C90064116E /* MainViewController.swift */; };
 		F400E31B2A29869500F99487 /* ChatBot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F400E31A2A29869500F99487 /* ChatBot.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		5A042B2624352814000BC283 /* ConversationDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationDelegate.swift; sourceTree = "<group>"; };
 		5A042B2724352814000BC283 /* AskCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AskCell.swift; sourceTree = "<group>"; };
 		6AA43190738CBDFC1CBB1BE0 /* Pods-ChatBot.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ChatBot.debug.xcconfig"; path = "Target Support Files/Pods-ChatBot/Pods-ChatBot.debug.xcconfig"; sourceTree = "<group>"; };
+		F188D9992A2B57C90064116E /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F400E31A2A29869500F99487 /* ChatBot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				5A042B2124352814000BC283 /* ConversationViewController.swift */,
+				F188D9992A2B57C90064116E /* MainViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A042B2E24352814000BC283 /* AskCell.swift in Sources */,
+				F188D99A2A2B57C90064116E /* MainViewController.swift in Sources */,
 				5A042AFF243527AF000BC283 /* AppDelegate.swift in Sources */,
 				5A042B2824352814000BC283 /* ConversationViewController.swift in Sources */,
 				5A042B2A24352814000BC283 /* ThinkingCell.swift in Sources */,

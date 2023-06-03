@@ -10,9 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet var img1: UIImageView!
-    @IBOutlet var btn1: UIButton!
-    @IBOutlet var slide: UICollectionView!
+    // @IBOutlet var img1: UIImageView!
+    @IBAction func btn1(_ sender: Any) {
+    }
+    // @IBOutlet var slide: UICollectionView!
     
     let youtubeLinks = [
         "https://www.youtube.com/watch?v=fhdX3Wcxwas",
@@ -26,15 +27,16 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         super.viewDidLoad()
         
         // 이미지뷰 스타일 설정
-        img1.layer.borderWidth = 2.0
-        img1.layer.borderColor = UIColor(red: 96/255, green: 150/255, blue: 180/255, alpha: 1.0).cgColor
-        img1.layer.cornerRadius = 20
-        img1.clipsToBounds = true
+        //img1.layer.borderWidth = 2.0
+        //img1.layer.borderColor = UIColor(red: 96/255, green: 150/255, blue: 180/255, alpha: 1.0).cgColor
+        //img1.layer.cornerRadius = 20
+        //img1.clipsToBounds = true
         
         // 버튼 스타일 설정
-        btn1.layer.cornerRadius = btn1.frame.height / 2
-        btn1.clipsToBounds = true
+        // btn1.layer.cornerRadius = btn1.frame.height / 2
+        // btn1.clipsToBounds = true
         
+        /*
         // 슬라이드 컬렉션 뷰 설정
         slide.delegate = self
         slide.dataSource = self
@@ -44,6 +46,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if let flowLayout = slide.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
         }
+         */
         
         // 썸네일 이미지 다운로드
         downloadThumbnails()
@@ -97,11 +100,13 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 128, height: 181)
     }
-    
+   /*
     @IBAction func btn1Tapped() {
         // 버튼을 눌렀을 때 실행할 코드를 여기에 작성하세요
         // 다른 페이지로 넘어가는 코드를 추가하세요
     }
+    */
+     
     
     // MARK: Thumbnail 다운로드
     
@@ -113,7 +118,7 @@ class MainViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     if let data = data, let thumbnail = UIImage(data: data) {
                         DispatchQueue.main.async {
                             self.thumbnails.append(thumbnail)
-                            self.slide.reloadData()
+                            // self.slide.reloadData()
                         }
                     }
                 }
