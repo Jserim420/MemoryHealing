@@ -15,7 +15,7 @@ struct Message {
 }
 
 /// 대화를 시작하기 위해 표시되는 환영 메시지
-let openingLine = Message(date: Date(), text: "안녕하세요! 사용자님의 고민을 털어놔 보세요.", type: .BotAnswer)
+let openingLine = Message(date: Date(), text: "안녕? 고민이 뭐야?", type: .BotAnswer)
 
 struct UserQuestion {
     let message: Message  // 메시지

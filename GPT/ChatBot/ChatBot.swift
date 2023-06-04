@@ -16,23 +16,21 @@ struct ChatGPTMessage: Codable {
 }
 
 class ChatBot {
-    let apiKey = "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" // 여기에 OpenAI API 키를 넣어주세요
+    let apiKey = "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" // 여기에 OpenAI API 키를 넣어주세요
     let baseURL = URL(string: "https://api.openai.com/v1/chat/completions")!
 
     var messages: [[String: String]]?
 
     init() {
         self.messages = [
-            ["role": "system", "content": "너는 내 고민을 들어주고 공감해주는 내 친한 친구야. 친구처럼 친근하게 내 고민을 들어줘."],
+            ["role": "system", "content": "도움이 되는 친구 입니다."],
             ["role": "user", "content": "나 고민이 있어..."],
             ["role": "assistant", "content": "무슨 일인데? 이야기 해보면서 마음의 부담을 덜어보는 건 어때요? 전 언제든지 들어줄게요."],
             ["role": "user", "content": "반말로 친한 친구처럼 이야기하자.."],
             ["role": "assistant", "content": "네, 그래! 무슨 일이 있나 이야기 해봐! 함께 해결해보자."],
             ["role": "user", "content": "반말로 이야기 해줘"],
             ["role": "assistant", "content": "안녕? 고민이 뭐야?"],
-            ["role": "user", "content": "안녕?"],
-            ["role": "assistant", "content": "안녕? 고민이 뭐야? 나한테 언제든지 이야기 해봐. 난 언제나 너의 편이야"],
-            
+            ["role": "user", "content": "안녕?"]
         ]
     }
 
@@ -47,6 +45,8 @@ class ChatBot {
             return
         }
         
+        // 사용자의 질문을 메시지에 추가
+        messages.append(["role": "user", "content": question])
         
         let requestData: [String: Any] = [
             "messages": messages,
@@ -83,7 +83,7 @@ class ChatBot {
 
                         let decoder = JSONDecoder()
                         let responseJSON = try decoder.decode(ChatGPTResponse.self, from: data)
-                        if let reply = responseJSON.choices.first?.message.content {
+                        if let reply = responseJSON.choices.last?.message.content {
                             print("응답: \(reply)")
                             completion(reply)
                         } else {
@@ -102,7 +102,6 @@ class ChatBot {
             completion("JSON 데이터 생성 실패")
         }
     }
-
 
     // 다른 메서드 등
 }
