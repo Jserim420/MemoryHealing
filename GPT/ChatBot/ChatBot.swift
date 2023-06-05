@@ -16,7 +16,7 @@ struct ChatGPTMessage: Codable {
 }
 
 class ChatBot {
-    let apiKey = "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" // 여기에 OpenAI API 키를 넣어주세요
+    let apiKey = "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" // 여기에 OpenAI API 키를 넣어주세요
     let baseURL = URL(string: "https://api.openai.com/v1/chat/completions")!
 
     var messages: [[String: String]]?
